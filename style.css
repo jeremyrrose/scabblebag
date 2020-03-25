@@ -237,7 +237,7 @@ button.trade {
     height: 100%;
 }
 
-.buttons .drawButton {
+.drawButton {
     display: block;
     width: 100%;
     margin-top: 18px;
@@ -265,7 +265,7 @@ button.trade {
     cursor: pointer;
 }
 
-.changeModal, .tradeModal, .drawModal {
+.changeModal, .tradeModal, .drawModal, .welcomeModal {
     display: none;
     position: fixed;
     top: 0px;
@@ -275,8 +275,17 @@ button.trade {
     height: 100vh;
 }
 
+.welcomeModal {
+    overflow-y: scroll;
+}
+
 .changeModal div, .tradeModal div, .drawModal>div {
     margin: 16% 12%;
+}
+
+.welcomeModal div {
+    margin: 0 8vw 30vw 8vw;
+    font-size: 20px;
 }
 
 .changeModal div div {
@@ -290,7 +299,7 @@ button.trade {
     max-width: 90%;
 }
 
-.changeModal.show, .tradeModal.show, .drawModal.show {
+.changeModal.show, .tradeModal.show, .drawModal.show, .welcomeModal.show {
     display: block;
     background-color: rgba(256,256,256,.95);
 }

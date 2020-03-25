@@ -81,6 +81,19 @@
             </div>
         </div>
     </div>
+
+    <div class="welcomeModal">
+        <div>
+            <h3>Welcome to Scrabblebag!</h3>
+            <p>Call a friend on the phone and play!</p>
+            <button type="button" class="drawButton" onclick="newGame()">Start a New Game!</button>
+            <h4>How to play:</h4>
+            <p>Get out your Scrabble board and arrange all the letters face up.</p>
+            <p>Whenever it's time to draw, tell the bag how many letters you need and press "Draw." Find the tiles you see on the screen and place them on your rack.</p>
+            <p>The rest is up to the players! Each time you make a play, describe it to the other players; they'll use letters from the face-up pool to place your word on their boards.</p>
+            <p>Use clear communication, ask questions, and don't violate the honor system! And have fun talking to your friend!</p>
+        </div>
+    </div>
     <div class="drawModal">
         <div>
             <h2></h2>
@@ -113,6 +126,5 @@
     </div>
 </body>
 <script src="main.js"></script>
-<script>getBag()</script>
-<script>drawId()</script>
+<script>initialize()</script>
 </html>

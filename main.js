@@ -32,6 +32,15 @@ const letterTemplates = [
     {Z:10}
 ]
 
+const initialize = async () => {
+    if(gameId) {
+        getBag();
+        drawId();
+    } else {
+        document.querySelector('.welcomeModal').classList.add('show');
+    }
+}
+
 const getBag = async () => {
     const res = await fetch(`${api}/bag/${gameId}`)
     .then(resp => resp.json())
