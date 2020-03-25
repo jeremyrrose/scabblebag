@@ -1,0 +1,419 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: sans-serif;
+    overflow: hidden;
+    background: url('./scrabbleprint.jpg');
+    background-size: cover;
+}
+
+.board {
+    height: 96vh;
+    width: 86vh;
+    flex-shrink: 0;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(15,1fr);
+    grid-gap: .5vh;
+}
+
+.board div {
+    background: #cecece;
+}
+
+.board .triple {
+    background: red;
+}
+
+.board .double {
+    background: pink;
+}
+
+.info {
+    position: relative;
+    flex-grow: 0;
+    min-width: 900px;
+    max-width: 900px;
+    min-height: 98vh;
+    margin: 0 auto;
+    display: block;
+    overflow: hidden;
+    background: rgba(256,256,256,.95);
+}
+
+.infoHeader {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    text-align: right;
+    z-index: 10;
+}
+
+.infoHeader img {
+    height: 34px;
+    width: 34px;
+    cursor: pointer;
+}
+
+.burger {
+    background: none;
+}
+
+.menu {
+    position: relative;
+    height: 0px;
+    padding: 0px;
+    overflow: hidden;
+    transition: .5s;
+    background: white;
+    border-radius: 16px;
+    z-index: 10;
+    opacity: 0.1;
+}
+
+.menu.show {
+    height: 300px;
+    padding-top: 20px;
+    opacity: 1;
+    box-shadow: 0 0 20px 0px rgba(0,0,0,.1);
+}
+
+.menu .gameId {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.menu .gameId span {
+    font-weight: normal;
+}
+
+.menu .gameId textarea {
+    display: none;
+}
+
+.menu button {
+    font-size: 24px;
+    padding: 6px 12px;
+    border: 0px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.menu div {
+    margin: 16px;
+}
+
+.menu .contact {
+    margin-top: 40px;
+}
+
+.menu .contact a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.bag div {
+    position: relative;
+}
+
+.tiles, .draw {
+    display: flex;
+    flex-grow: 0;
+    flex-wrap: wrap;
+}
+
+.tiles {
+    justify-content: center;
+}
+
+.draw div {
+    background: darkred;
+    width: 4.8vh;
+    height: 4.4vh;
+    margin: .1vh;
+    border-radius: .6vh;
+    color: #ffffff;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 3.4vh;
+    text-align: center;
+    padding-top: .8vh;
+}
+
+.tiles div {
+    background: darkred;
+    width: 3.6vh;
+    height: 3.3vh;
+    margin: .1vh;
+    border-radius: .45vh;
+    color: rgba(256,256,256,0);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 3vh;
+    text-align: center;
+    padding-top: .6vh;
+}
+
+.remain {
+    display: flex;
+    font-size: 2.4vh;
+    align-items: center;
+}
+
+.remain h3 {
+    font-size: 18vw;
+    margin: 0px;
+    margin-right: 4vw;
+    padding: 4vw;
+    border: 1px solid #cecece;
+    border-radius: 4vw;
+}
+
+.remain p {
+    margin: 0px;
+    padding: 0px;
+}
+
+.controls {
+    display: flex;
+    padding: 10px 0px 0px 0px;
+    background: #ffffff;
+    width: 100%;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    box-shadow: 0 0 9px 9px white;
+}
+
+.controls div {
+    position: relative;
+}
+
+.controls h5 {
+    font-weight: normal;
+    background: #ffffff;
+    margin: 0px;
+    padding: .1vh;
+}
+
+.keypad {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 182px;
+}
+
+.key {
+    padding: 0px;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    border: 0px;
+    margin: 0px 10px 10px 0px;
+    border-radius: 20px;
+    background: lightgrey;
+    cursor: pointer;
+}
+
+.key.selected {
+    background-color: pink;
+}
+
+button.trade {
+    font-size: 24px;
+    width: 110px;
+    height: 50px;
+    border: 0px;
+    margin: 0px 10px 10px 0px;
+    border-radius: 20px;
+    background: lightgrey;
+    cursor: pointer;
+}
+
+.buttons {
+    flex-grow: 10;
+    height: 100%;
+}
+
+.buttons .drawButton {
+    display: block;
+    width: 100%;
+    margin-top: 18px;
+    margin-bottom: 14px;
+    color: white;
+    background: blue;
+    padding: 14px;
+    border: 0px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.buttons div {
+    display: flex;
+    justify-content: stretch;
+}
+
+.buttons .changeButton {
+    padding: .8vh;
+    margin-right: .4vh;
+    border: 0px;
+    border-radius: 1vh;
+    background: lightgrey;
+    cursor: pointer;
+}
+
+.changeModal, .tradeModal, .drawModal {
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+}
+
+.changeModal div, .tradeModal div, .drawModal>div {
+    margin: 16% 12%;
+}
+
+.changeModal div div {
+    margin: 0;
+}
+
+.changeModal input, .tradeModal input {
+    font-size: 22px;
+    padding: 8px;
+    border-radius: 8px;
+    max-width: 90%;
+}
+
+.changeModal.show, .tradeModal.show, .drawModal.show {
+    display: block;
+    background-color: rgba(256,256,256,.95);
+}
+
+.changeModal button, .tradeModal button, .drawModal button {
+    padding: 1vh 4vh;
+    margin-bottom: 3vh;
+    border-radius: 1vh;
+    border: 0px;
+    background: blue;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.drawModal .buttons {
+    display: flex;
+    margin-top: 8vh;
+}
+
+.drawModal .buttons .changeButton {
+    font-weight: normal;
+}
+
+.drawModal .buttons .drawButton {
+    margin-top: 0;
+    margin-left: 20px;
+    font-size: 12vw;
+}
+
+@media (min-width: 900px) {
+    
+    .info {
+        padding: 20px;
+        box-shadow: 0 0 9px 9px white;
+    }
+
+    .draw div {
+        width: 80px;
+        height: 86px;
+        font-size: 60px;
+        padding: 16px 0 0 0;
+    }
+
+    .remain {
+        font-size: 36px;
+    }
+    
+    .remain h3 {
+        font-size: 90px;
+        margin-right: 20px;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .controlsNum {
+        margin: 0 0 20px 60px;
+    }
+
+    .buttons {
+        padding: 0 60px 20px 0;
+    }
+
+    .buttons .changeButton {
+        font-size: 24px;
+        padding: 12px;
+        margin-right: 12px;
+        border-radius: 14px;
+    }
+}
+
+@media (max-width: 900px) {
+    .info {
+        margin: 0;
+        min-width: 100vw;
+    }
+
+    .draw div, .tiles div {
+        width: 15vw;
+        height: 16vw;
+        margin: .6vw;
+        border-radius: 2vw;
+        font-size: 12vw;
+        padding-top: 2vw;
+    }
+
+    .tiles div {
+        width: 8vw;
+        height: 9vw;
+        margin: .4vw;
+        border-radius: 1.4vw;
+        font-size: 7vw;
+        padding-top: 1.2vw;
+    }
+
+    .remain {
+        font-size: 6vw;
+    }
+
+    button {
+        font-size: 5vw;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .keypad {
+        min-width: 146px;
+    }
+
+    .key {
+        font-size: 32px;
+        width: 42px;
+        height: 42px;
+        margin: 0px 6px 6px 0px;
+        border-radius: 14px;
+    }    
+
+    button.trade {
+        font-size: 20px;
+        width: 90px;
+        height: 42px;
+        margin: 0px 6px 6px 0px;
+        border-radius: 14px;
+    }
+}
