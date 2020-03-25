@@ -33,7 +33,7 @@
     <div class="info">
         <div class="infoHeader">
             <div class="burger">
-                <img class="burgerImg" src="hamburger.svg">
+                <?php include('hamburger.svg') ?>
             </div>
             <div class="menu">
                 <div class="gameId">

@@ -142,7 +142,7 @@ const newGame = async () => {
 // let double = ['8:8','2:2','2:14','3:3','3:13','4:4','4:12','5:5','5:11','11:5','11:11','12:4','12:12','13:3','13:13','14:2','14:14'];
 // double.forEach(id => document.getElementById(`${id}`).classList.add('double'));
 
-let burger = document.querySelector('.burgerImg');
+let burger = document.querySelector('.burger').querySelector('svg');
 let gameIdSpan = document.querySelector('.gameId').querySelector('span');
 let gameIdTextarea = document.querySelector('.gameId').querySelector('textarea');
 let tileDiv = document.querySelector('.tiles');

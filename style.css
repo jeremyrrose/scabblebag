@@ -52,14 +52,19 @@ body {
     z-index: 10;
 }
 
-.infoHeader img {
+.burger {
+    background: none;
+}
+
+.burger svg {
+    fill: grey;
     height: 34px;
     width: 34px;
     cursor: pointer;
 }
 
-.burger {
-    background: none;
+.burger svg:hover {
+    fill: pink;
 }
 
 .menu {
