@@ -76,9 +76,13 @@ const undoDraw = async () => {
     return game;
 }
 
-const uiDraw = async () => {
+const uiDraw = async (e) => {
+    console.log(e.target.innerHTML);
+    let current = e.target.innerHTML;
     let num = numTiles;
-    await drawTiles(gameId, num);
+    e.target.innerHTML = '<img src="loading.svg" />';
+    await drawTiles(gameId, num)
+    .then(() => e.target.innerHTML = current);
     drawModalDiv.querySelector('div').querySelector('h2').innerHTML = `You drew ${num} tile${num > 1 ? 's' : ''}:`;
     drawModal();
 }
@@ -147,12 +151,16 @@ let gameIdSpan = document.querySelector('.gameId').querySelector('span');
 let gameIdTextarea = document.querySelector('.gameId').querySelector('textarea');
 let tileDiv = document.querySelector('.tiles');
 let drawModalDiv = document.querySelector('.drawModal');
+let loadModal = document.querySelector('.loadModal');
 let drawDiv = document.querySelector('.draw');
 let remain = document.querySelector('.remain');
 let keypad = document.querySelector('.keypad');
 let keys = keypad.querySelectorAll('button');
+let drawButton = document.getElementById('drawButton');
 
-keys.forEach(key => key.addEventListener('click',(e) => numSelect(e)));           
+keys.forEach(key => key.addEventListener('click',(e) => numSelect(e))); 
+
+drawButton.addEventListener('click', (e) => uiDraw(e));
 
 const showMenu = () => {
     document.querySelector('.menu').classList.toggle('show');

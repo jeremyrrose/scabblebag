@@ -74,7 +74,7 @@
             </div>
         </div>
         <div class="buttons">
-            <button type="button" class="drawButton" onclick="uiDraw()">Draw</button>
+            <button type="button" class="drawButton" id="drawButton">Draw</button>
             <div>
                 <button type="button" class="changeButton" onclick="undoDraw()">Undo Draw</button>
                 <button type="button" class="changeButton" onclick="changeModal()">Change Game</button>

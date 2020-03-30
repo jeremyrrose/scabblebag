@@ -270,6 +270,18 @@ button.trade {
     cursor: pointer;
 }
 
+button {
+    transition: .4s;
+}
+
+button img, button svg {
+    height: 1em;
+}
+
+button:press {
+    opacity: .2;
+}
+
 .changeModal, .tradeModal, .drawModal, .welcomeModal {
     display: none;
     position: fixed;
