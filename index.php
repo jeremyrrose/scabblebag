@@ -75,9 +75,7 @@
         </div>
         <div class="buttons">
             <button type="button" class="drawButton" id="drawButton">Draw</button>
-            <div>
-                <button type="button" class="changeButton" onclick="changeModal()"><div>Adjust Game</div><img src="settings.svg"></button>
-            </div>
+            <button type="button" class="changeButton" onclick="changeModal()"><div>Adjust Game</div><img src="settings.svg"></button>
         </div>
     </div>
 

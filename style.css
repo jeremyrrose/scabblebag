@@ -10,6 +10,8 @@ body {
     background-size: cover;
 }
 
+/* muted/future board function
+
 .board {
     height: 96vh;
     width: 86vh;
@@ -30,7 +32,9 @@ body {
 
 .board .double {
     background: pink;
-}
+} 
+
+*/
 
 .info {
     position: relative;
@@ -44,6 +48,7 @@ body {
     background: rgba(256,256,256,.95);
 }
 
+/* hamburger and header */
 .infoHeader {
     position: absolute;
     top: 0px;
@@ -120,6 +125,7 @@ body {
     font-weight: bold;
 }
 
+/* tile displays */
 .bag div {
     position: relative;
 }
@@ -182,6 +188,7 @@ body {
     padding: 0px;
 }
 
+/* control interface */
 .controls {
     display: flex;
     padding: 10px 0px 0px 0px;
@@ -239,13 +246,14 @@ button.trade {
 
 .buttons {
     flex-grow: 10;
-    height: 100%;
+    padding: 16px 0 6px 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .drawButton {
     display: block;
     width: 100%;
-    margin-top: 18px;
     margin-bottom: 14px;
     color: white;
     background: blue;
@@ -256,24 +264,21 @@ button.trade {
     font-size: 30px;
 }
 
-.buttons div {
-    display: flex;
-    justify-content: stretch;
-    flex-direction: row-reverse;
-}
-
-.buttons div button {
-    display: flex;
-
+.buttons .drawButton {
+    display: block;
+    flex-grow: 10;
 }
 
 .buttons .changeButton {
-    padding: .8vh;
+    padding: 1em;
     margin-right: .4vh;
     border: 0px;
     border-radius: 1em;
     background: lightgrey;
     cursor: pointer;
+    display: flex;
+    justify-self: stretch;
+    justify-content: space-between;
 }
 
 button {
@@ -285,10 +290,7 @@ button img, button svg {
     align-self: center;
 }
 
-button:press {
-    opacity: .2;
-}
-
+/* modal views */
 .changeModal, .tradeModal, .drawModal, .welcomeModal, .messageModal {
     display: none;
     position: fixed;
@@ -299,12 +301,17 @@ button:press {
     height: 100vh;
 }
 
-.welcomeModal {
-    overflow-y: scroll;
+.changeModal.show, .tradeModal.show, .drawModal.show, .welcomeModal.show, .messageModal.show {
+    display: block;
+    background-color: rgba(256,256,256,.95);
 }
 
 .changeModal div, .tradeModal div, .drawModal>div {
     margin: 16% 12%;
+}
+
+.welcomeModal {
+    overflow-y: scroll;
 }
 
 .welcomeModal div {
@@ -312,8 +319,23 @@ button:press {
     font-size: 20px;
 }
 
+/* settings modal */
 .changeModal div div {
     margin: 0;
+}
+
+.changeModal button {
+    background: blue;
+    font-weight: normal;
+}
+
+.changeModal h2, .changeModal h3 {
+    margin: 1em 0;
+}
+
+.changeModal .return {
+    background: green;
+    padding: 1em;
 }
 
 .adjusters.hide { 
@@ -346,11 +368,6 @@ button:press {
     max-width: 90%;
 }
 
-.changeModal.show, .tradeModal.show, .drawModal.show, .welcomeModal.show, .messageModal.show {
-    display: block;
-    background-color: rgba(256,256,256,.95);
-}
-
 .changeModal button, .tradeModal button, .drawModal button {
     padding: 1vh 4vh;
     margin-bottom: 3vh;
@@ -362,8 +379,10 @@ button:press {
     cursor: pointer;
 }
 
+/* draw modal */
 .drawModal .buttons {
     display: flex;
+    flex-direction: row;
     margin-top: 8vh;
 }
 
@@ -378,6 +397,7 @@ button:press {
     font-size: 12vw;
 }
 
+/* trade modal */
 .tradeModal button {
     font-weight: normal;
     padding: 1em;
@@ -387,20 +407,6 @@ button:press {
 .tradeModal button.tradeConfirm {
     background: green;
     width: 120px;
-}
-
-.changeModal button {
-    background: blue;
-    font-weight: normal;
-}
-
-.changeModal h2, .changeModal h3 {
-    margin: 1em 0;
-}
-
-.changeModal .return {
-    background: green;
-    padding: 1em;
 }
 
 @media (min-width: 900px) {
@@ -481,6 +487,7 @@ button:press {
 
     .keypad {
         min-width: 146px;
+        max-width: 160px;
     }
 
     .key {
