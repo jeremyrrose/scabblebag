@@ -76,8 +76,7 @@
         <div class="buttons">
             <button type="button" class="drawButton" id="drawButton">Draw</button>
             <div>
-                <button type="button" class="changeButton" onclick="undoDraw()">Undo Draw</button>
-                <button type="button" class="changeButton" onclick="changeModal()">Adjust Game <img src="settings.svg"></button>
+                <button type="button" class="changeButton" onclick="changeModal()"><div>Adjust Game</div><img src="settings.svg"></button>
             </div>
         </div>
     </div>
@@ -111,20 +110,21 @@
                 <h2>Adjust this game:</h2>
 
                 <h3>Most recent draws (number of tiles): <span></span></h3>
-                
-                <button type="button" id="showLatest" onclick="drawLastDraw()">Show Latest Draw</button>
                 <div class="showLastDraw">
                 </div>
-                <button type="button" id="adjustUndo" class="off">Undo Latest Draw</button>
+                <div class="adjusterButtons">
+                    <button type="button" id="showLatest" onclick="drawLastDraw()">Show Latest Draw</button>
+                    <button type="button" id="adjustUndo" class="off">Undo Draw</button>
+                </div>
             </div>
 
             <h2>Leave this game:</h2>
             <button type="button" onclick="newGame()">Start New Game</button>
             <div>
                 <input id="gameId" />
-                <button type="button" onclick="goToGame(document.getElementById('gameId').value)">... or Enter Existing Game ID Here</button>
+                <button type="button" onclick="goToGame(document.getElementById('gameId').value)">...or Enter a Game ID</button>
             </div>
-            <button type="button" onclick="changeModal()">Return to Game</button>
+            <button type="button" class="return" onclick="changeModal()">Return to Game</button>
         </div>
     </div>
     <div class="tradeModal">
@@ -132,9 +132,13 @@
             <h3>Which letters would you like to trade in?</h3>
             <input id="tradeLetters" />
             <p>(Type letters separated by a comma. Example: A,Q,X,V)</p>
-            <button type="button" onclick="uiTrade()">Trade</button>
+            <button type="button" class="tradeConfirm" onclick="uiTrade()">Trade</button>
             <button type="button" onclick="tradeModal()">Cancel</button>
         </div>
+    </div>
+    <div class="messageModal">
+        <h3></h3>
+        <button type="button" onclick="messageModal()">Close</button>
     </div>
 </body>
 <script src="main.js"></script>

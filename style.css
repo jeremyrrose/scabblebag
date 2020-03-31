@@ -259,13 +259,19 @@ button.trade {
 .buttons div {
     display: flex;
     justify-content: stretch;
+    flex-direction: row-reverse;
+}
+
+.buttons div button {
+    display: flex;
+
 }
 
 .buttons .changeButton {
     padding: .8vh;
     margin-right: .4vh;
     border: 0px;
-    border-radius: 1vh;
+    border-radius: 1em;
     background: lightgrey;
     cursor: pointer;
 }
@@ -276,13 +282,14 @@ button {
 
 button img, button svg {
     height: 1em;
+    align-self: center;
 }
 
 button:press {
     opacity: .2;
 }
 
-.changeModal, .tradeModal, .drawModal, .welcomeModal {
+.changeModal, .tradeModal, .drawModal, .welcomeModal, .messageModal {
     display: none;
     position: fixed;
     top: 0px;
@@ -323,6 +330,10 @@ button:press {
     margin-right: 1vw;
 }
 
+.adjusterButtons {
+    display: flex;
+}
+
 #adjustUndo.off, #showLatest.off {
     pointer-events: none;
     background-color: #cecece;
@@ -335,7 +346,7 @@ button:press {
     max-width: 90%;
 }
 
-.changeModal.show, .tradeModal.show, .drawModal.show, .welcomeModal.show {
+.changeModal.show, .tradeModal.show, .drawModal.show, .welcomeModal.show, .messageModal.show {
     display: block;
     background-color: rgba(256,256,256,.95);
 }
@@ -365,6 +376,31 @@ button:press {
     margin-top: 0;
     margin-left: 20px;
     font-size: 12vw;
+}
+
+.tradeModal button {
+    font-weight: normal;
+    padding: 1em;
+    background: blue;
+}
+
+.tradeModal button.tradeConfirm {
+    background: green;
+    width: 120px;
+}
+
+.changeModal button {
+    background: blue;
+    font-weight: normal;
+}
+
+.changeModal h2, .changeModal h3 {
+    margin: 1em 0;
+}
+
+.changeModal .return {
+    background: green;
+    padding: 1em;
 }
 
 @media (min-width: 900px) {

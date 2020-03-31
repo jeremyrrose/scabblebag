@@ -52,15 +52,21 @@ const getBag = async () => {
 }
 
 const drawTiles = async (gameId, num) => {
-    const game = await fetch(`${api}/draw/${gameId}/${num}`)
-    .then(resp => resp.json())
-    .then(resp => resp.game)
-    draw = game.draws[game.draws.length-1];
-    bag = game.bag;
-    drawDraw();
-    drawBag();
-    drawRemain();
-    return game;
+    try {
+        const game = await fetch(`${api}/draw/${gameId}/${num}`)
+        .then(resp => resp.json())
+        .then(resp => resp.game)
+        draw = game.draws[game.draws.length-1];
+        bag = game.bag;
+        drawDraw();
+        drawBag();
+        drawRemain();
+        return game;
+    } catch (error) {
+        drawModal();
+        document.querySelector('.messageModal').querySelector('h3').innerHTML = `Something went wrong!<br>Please close this message and try again.<br> <br>Error details: ${error.message}`;
+        messageModal();
+    }
 }
 
 const undoDraw = async () => {
@@ -223,6 +229,10 @@ const changeModal = async () => {
 
 const tradeModal = () => {
     document.querySelector('.tradeModal').classList.toggle('show');
+}
+
+const messageModal = () => {
+    document.querySelector('.messageModal').classList.toggle('show');
 }
 
 const drawId = () => {
