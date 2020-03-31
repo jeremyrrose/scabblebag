@@ -90,7 +90,6 @@ const uiDraw = async (e) => {
 
 const uiTrade = () => {
     let letters = document.getElementById('tradeLetters').value.split(',');
-    console.log(letters);
     tradeIn(letters);
     tradeModal();
 }
@@ -109,9 +108,12 @@ const tradeIn = async (letters) => {
         },
         body: JSON.stringify(trade)
     }).then(resp => resp.json())
-    .then(resp => resp.game)
+    .then(resp => resp.game);
+    let num = trade.length;
+    drawModalDiv.querySelector('div').querySelector('h2').innerHTML = `You traded ${num} tile${num > 1 || num == 0 ? 's' : ''}.<br>Here is your new draw:`;
     draw = game.draws[game.draws.length-1];
     bag = game.bag;
+    drawModal();
     drawDraw();
     drawBag();
     drawRemain();
