@@ -134,7 +134,7 @@ body {
     justify-content: center;
 }
 
-.draw div {
+.draw div, .showLastDraw div {
     background: darkred;
     width: 4.8vh;
     height: 4.4vh;
@@ -309,6 +309,25 @@ button:press {
     margin: 0;
 }
 
+.adjusters.hide { 
+    display: none;
+}
+
+.changeModal .showLastDraw {
+    display: flex;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.changeModal .showLastDraw div {
+    margin-right: 1vw;
+}
+
+#adjustUndo.off, #showLatest.off {
+    pointer-events: none;
+    background-color: #cecece;
+}
+
 .changeModal input, .tradeModal input {
     font-size: 22px;
     padding: 8px;
@@ -326,7 +345,7 @@ button:press {
     margin-bottom: 3vh;
     border-radius: 1vh;
     border: 0px;
-    background: blue;
+    background: green;
     font-weight: bold;
     color: white;
     cursor: pointer;
@@ -339,6 +358,7 @@ button:press {
 
 .drawModal .buttons .changeButton {
     font-weight: normal;
+    background: blue;
 }
 
 .drawModal .buttons .drawButton {

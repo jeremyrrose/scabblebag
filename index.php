@@ -77,7 +77,7 @@
             <button type="button" class="drawButton" id="drawButton">Draw</button>
             <div>
                 <button type="button" class="changeButton" onclick="undoDraw()">Undo Draw</button>
-                <button type="button" class="changeButton" onclick="changeModal()">Change Game</button>
+                <button type="button" class="changeButton" onclick="changeModal()">Adjust Game <img src="settings.svg"></button>
             </div>
         </div>
     </div>
@@ -89,6 +89,7 @@
             <button type="button" class="drawButton" onclick="newGame()">Start a New Game!</button>
             <h4>How to play:</h4>
             <p>Get out your Scrabble board and arrange all the letters face up.</p>
+            <p>Start a new game and text or email the URL in the address bar to your friend. All players should be at the same address.</p>
             <p>Whenever it's time to draw, tell the bag how many letters you need and press "Draw." Find the tiles you see on the screen and place them on your rack.</p>
             <p>The rest is up to the players! Each time you make a play, describe it to the other players; they'll use letters from the face-up pool to place your word on their boards.</p>
             <p>Use clear communication, ask questions, and don't violate the honor system! And have fun talking to your friend!</p>
@@ -106,13 +107,24 @@
     </div>
     <div class="changeModal">
         <div>
-            <h3>Are you sure you want to leave this game?</h3>
+            <div class="adjusters">
+                <h2>Adjust this game:</h2>
+
+                <h3>Most recent draws (number of tiles): <span></span></h3>
+                
+                <button type="button" id="showLatest" onclick="drawLastDraw()">Show Latest Draw</button>
+                <div class="showLastDraw">
+                </div>
+                <button type="button" id="adjustUndo" class="off">Undo Latest Draw</button>
+            </div>
+
+            <h2>Leave this game:</h2>
             <button type="button" onclick="newGame()">Start New Game</button>
             <div>
                 <input id="gameId" />
-                <button type="button" onclick="goToGame(document.getElementById('gameId').value)">&lt;- or Enter Existing Game ID</button>
+                <button type="button" onclick="goToGame(document.getElementById('gameId').value)">... or Enter Existing Game ID Here</button>
             </div>
-            <button type="button" onclick="changeModal()">Cancel</button>
+            <button type="button" onclick="changeModal()">Return to Game</button>
         </div>
     </div>
     <div class="tradeModal">

@@ -77,13 +77,14 @@ const undoDraw = async () => {
 }
 
 const uiDraw = async (e) => {
-    console.log(e.target.innerHTML);
     let current = e.target.innerHTML;
-    let num = numTiles;
-    e.target.innerHTML = '<img src="loading.svg" />';
-    await drawTiles(gameId, num)
-    .then(() => e.target.innerHTML = current);
-    drawModalDiv.querySelector('div').querySelector('h2').innerHTML = `You drew ${num} tile${num > 1 ? 's' : ''}:`;
+    let num = numTiles ? numTiles : 0;
+    if (num > 0 && num < 8) {
+        e.target.innerHTML = '<img src="loading.svg" />';
+        await drawTiles(gameId, num)
+        .then(() => e.target.innerHTML = current);
+    }
+    drawModalDiv.querySelector('div').querySelector('h2').innerHTML = `You drew ${num} tile${num > 1 || num == 0 ? 's' : ''}:${num == 0 ? '<br>Please click OK, then select a number between 1 and 7.' : ''}`;
     drawModal();
 }
 
@@ -130,6 +131,17 @@ const newGame = async () => {
     goToGame(gameId);
 }
 
+const getSettings = async () => {
+    const settings = await fetch(`${api}/adjust/${gameId}`)
+    .then(resp => resp.json())
+    .then(resp => resp.settings);
+    console.log(settings);
+    showLastDrawButton.classList.remove('off');
+    showLastDraw.innerHTML = '';
+    document.querySelector('.changeModal').querySelector('h3').querySelector('span').innerHTML = settings.latestDraws.join(' ');
+    draw = settings.latestDraw;
+}
+
 // let main = document.querySelector('.board');
 // console.log(main);
 // for (let i = 1; i <= 15; i++) {
@@ -151,6 +163,10 @@ let gameIdSpan = document.querySelector('.gameId').querySelector('span');
 let gameIdTextarea = document.querySelector('.gameId').querySelector('textarea');
 let tileDiv = document.querySelector('.tiles');
 let drawModalDiv = document.querySelector('.drawModal');
+let adjusters = document.querySelector('.adjusters');
+let showLastDrawButton = document.getElementById('showLatest');
+let showLastDraw = document.querySelector('.showLastDraw');
+let adjustUndo = document.getElementById('adjustUndo');    
 let loadModal = document.querySelector('.loadModal');
 let drawDiv = document.querySelector('.draw');
 let remain = document.querySelector('.remain');
@@ -161,6 +177,11 @@ let drawButton = document.getElementById('drawButton');
 keys.forEach(key => key.addEventListener('click',(e) => numSelect(e))); 
 
 drawButton.addEventListener('click', (e) => uiDraw(e));
+
+adjustUndo.addEventListener('click', () => {
+    undoDraw();
+    changeModal(); 
+})
 
 const showMenu = () => {
     document.querySelector('.menu').classList.toggle('show');
@@ -187,8 +208,15 @@ const drawModal = () => {
     drawModalDiv.classList.toggle('show');
 }
 
-const changeModal = () => {
+const changeModal = async () => {
+    await getSettings();
     document.querySelector('.changeModal').classList.toggle('show');
+    if (bag.length === 100 && adjusters.classList.length < 2) {
+        adjusters.classList.add('hide');
+    } else if (bag.length != 100 && adjusters.classList.length > 1) {
+        adjusters.classList.remove('hide');
+    }
+    adjustUndo.classList.add('off');
 }
 
 const tradeModal = () => {
@@ -219,6 +247,18 @@ const drawDraw = () => {
         tile.innerHTML = letter;
         drawDiv.appendChild(tile);
     });
+}
+
+const drawLastDraw = () => {
+    draw.forEach((letterVal) => {
+        let letter = Object.keys(letterVal)[0];
+        let tile = document.createElement('div');
+        tile.dataset.value = letterVal[letter];
+        tile.innerHTML = letter;
+        showLastDraw.appendChild(tile);
+    });
+    showLastDrawButton.classList.add('off');
+    adjustUndo.classList.remove('off');    
 }
 
 const drawRemain = () => {
