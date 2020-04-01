@@ -86,10 +86,10 @@
             <button type="button" class="drawButton" onclick="newGame()">Start a New Game!</button>
             <h4>How to play:</h4>
             <p>Get out your Scrabble board and arrange all the letters face up.</p>
-            <p>Start a new game and text or email the URL in the address bar to your friend. All players should be at the same address.</p>
-            <p>Whenever it's time to draw, tell the bag how many letters you need and press "Draw." Find the tiles you see on the screen and place them on your rack.</p>
+            <p>Start a new game and text or email the URL in the address bar to your friend. Whenever it's time to draw, tell the bag how many letters you need and press "Draw." Find the tiles you see on the screen and place them on your rack.</p>
             <p>The rest is up to the players! Each time you make a play, describe it to the other players; they'll use letters from the face-up pool to place your word on their boards.</p>
-            <p>Use clear communication, ask questions, and don't violate the honor system! And have fun talking to your friend!</p>
+            <p>Use clear communication, ask questions, and don't violate the honor system! And have fun talking to your friends!</p>
+            <p onclick="showInstructions()" style="cursor: pointer; font-weight: bold; color: green;">View step-by-step instructions here.</p>
         </div>
     </div>
     <div class="drawModal">

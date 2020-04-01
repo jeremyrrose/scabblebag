@@ -449,6 +449,10 @@ button img, button svg {
     margin: 10vh 0 0 0;
 }
 
+.FAQ {
+    margin-bottom: 50vh;
+}
+
 @media (min-width: 900px) {
     
     .info {
