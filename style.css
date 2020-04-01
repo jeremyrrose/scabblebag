@@ -475,13 +475,19 @@ button img, button svg {
 
     .buttons {
         padding: 0 60px 20px 0;
+        align-items: flex-end;
     }
 
     .buttons .changeButton {
         font-size: 24px;
         padding: 12px;
-        margin-right: 12px;
+        margin-right: 0px;
         border-radius: 14px;
+        width: 300px;
+    }
+
+    .drawButton {
+        margin-top: 14px;
     }
 }
 
