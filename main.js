@@ -132,7 +132,7 @@ const uiDraw = async (e) => {
     let current = e.target.innerHTML;
     let num = numTiles ? numTiles : 0;
     if (num > 0 && num < 8) {
-        e.target.innerHTML = '<img src="loading.svg" />';
+        e.target.innerHTML = '<img src="images/loading.svg" />';
         await drawTiles(gameId, num)
         .then(() => e.target.innerHTML = current);
     }
