@@ -33,7 +33,7 @@
     <div class="info">
         <div class="infoHeader">
             <div class="burger">
-                <?php include('hamburger.svg') ?>
+                <?php include('images/hamburger.svg') ?>
             </div>
             <div class="menu">
                 <div class="gameId">
@@ -75,7 +75,7 @@
         </div>
         <div class="buttons">
             <button type="button" class="drawButton" id="drawButton">Draw</button>
-            <button type="button" class="changeButton" onclick="changeModal()"><div>Adjust Game</div><img src="settings.svg"></button>
+            <button type="button" class="changeButton" onclick="changeModal()"><div>Adjust Game</div><img src="images/settings.svg"></button>
         </div>
     </div>
 
@@ -138,7 +138,7 @@
         <div class="instructionsHeader">
             <div class="title">
                 <h2>How to play</h2>
-                <div onclick="showInstructions()"> <img src="exit.svg"> </div>
+                <div onclick="showInstructions()"> <img src="images/exit.svg"> </div>
             </div>
             <!-- <div class="instructionsMenu">
                 <span>Step By Step</span> | <span>Frequently Asked Questions</span>

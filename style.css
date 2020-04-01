@@ -6,7 +6,7 @@ body {
     display: flex;
     font-family: sans-serif;
     overflow: hidden;
-    background: url('./scrabbleprint.jpg');
+    background: url('images/scrabbleprint.jpg');
     background-size: cover;
 }
 
