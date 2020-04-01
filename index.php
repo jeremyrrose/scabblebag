@@ -134,6 +134,41 @@
             <button type="button" onclick="tradeModal()">Cancel</button>
         </div>
     </div>
+    <div class="instructionsModal">
+        <div class="instructionsHeader">
+            <div class="title">
+                <h2>How to play</h2>
+                <div onclick="showInstructions()"> X </div>
+            </div>
+            <!-- <div class="instructionsMenu">
+                <span>Step By Step</span> | <span>Frequently Asked Questions</span>
+            </div> -->
+        </div>
+        <div class="stepByStep">
+            <h3>Step by step:</h3>
+            <p><span>1.</span> Call a friend (or several friends) via speakerphone or video call. Set up a Scrabble board in each location and arrange all letter tiles face up.</p> 
+            <p><span>2.</span> Start a new game in this app.</p>
+            <p><span>3.</span> Copy the URL in your browser's address bar -- it will start with "http://jeremy-rose.com/scrabblebag" -- and text or email it to all players. (Players can view the bag on their smartphones or computers.)</p> 
+            <p><span>4.</span> To draw, select the number of tiles and press "Draw." Your new tiles will be displayed.</p>
+            <p><span>5.</span> Pick your designated letters from the face-up tiles, then click "OK." If you chose the wrong number of tiles, just click "Undo Draw" and try again. (Don't cheat!)</p>
+            <p><span>6.</span> When it's your turn, place your word on your board. Then tell your fellow players where you placed it.</p>
+            <p><span>7.</span> When other players make a play, listen carefully. Use tiles from the face-up pool to place their words on your board in the correct place.</p>
+            <p><span>8.</span> Have fun!</p>
+        </div>
+        <div class="FAQ">
+            <h3>Frequently Asked Questions</h3>
+            <h4>How do I keep score?</h4>
+            <p>Keep score just as you would in a normal Scrabble game. Each player can keep a scoresheet in their location, or one designated scorekeeper can keep everyone updated.</p>
+            <h4>What happens if there's a mistake?</h4>
+            <p>All players should draw only the letters selected for them by the app, but still, mistakes can happen if players add an incorrect tile to their rack or accidentally undo a valid draw. Players may notice a letter or two out of place at the very end of the game, so we suggest letting all players play with the letters they <i>think</i> they're supposed to have -- resolve any discrepancies by adding a placeholder tile on your board if necessary. This isn't a tournament game!</p>
+            <h4>Can I pause my game?</h4>
+            <p>Yes. There's no time limit, and you can come back to your game at any time by visiting the same address, including the long ID at the end. (Copy, paste, and email it to yourself to remember.)</p>
+            <h4>What if my friends cheat?</h4>
+            <p>You should expect better behavior from them!</p>
+            <h4>I just noticed a mistake that was made several draws earlier. Can I fix it?</h4>
+            <p>Well, it might be more fun to simply proceed with your game and use a placeholder tile for duplicates. If you insist on correcting a mistake, the "Adjust Game" menu allows you to see only the most recent draw. If you undo that draw, you can see the previous draw, and so on -- but all players would need to place every tile from these draws back in the face-up pool, and the game would need to be restarted from that point. We recommend moving forward instead!</p>
+        </div>
+    </div>
     <div class="messageModal">
         <h3></h3>
         <button type="button" onclick="messageModal()">Close</button>

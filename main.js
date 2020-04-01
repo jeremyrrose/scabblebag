@@ -22,6 +22,8 @@ let adjusters = document.querySelector('.adjusters');
 let showLastDrawButton = document.getElementById('showLatest');
 let showLastDraw = document.querySelector('.showLastDraw');
 let adjustUndo = document.getElementById('adjustUndo');  
+// instructions modal
+let instructionsDiv = document.querySelector('.instructionsModal');
 
 // boot game or welcome
 const initialize = async () => {
@@ -186,6 +188,10 @@ const tradeModal = () => {
 
 const messageModal = () => {
     document.querySelector('.messageModal').classList.toggle('show');
+}
+
+const showInstructions = () => {
+    instructionsDiv.classList.toggle('show');
 }
 
 // DOM writers

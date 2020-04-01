@@ -291,7 +291,7 @@ button img, button svg {
 }
 
 /* modal views */
-.changeModal, .tradeModal, .drawModal, .welcomeModal, .messageModal {
+.changeModal, .tradeModal, .drawModal, .welcomeModal, .messageModal, .instructionsModal {
     display: none;
     position: fixed;
     top: 0px;
@@ -301,7 +301,7 @@ button img, button svg {
     height: 100vh;
 }
 
-.changeModal.show, .tradeModal.show, .drawModal.show, .welcomeModal.show, .messageModal.show {
+.changeModal.show, .tradeModal.show, .drawModal.show, .welcomeModal.show, .messageModal.show, .instructionsModal.show {
     display: block;
     background-color: rgba(256,256,256,.95);
 }
@@ -407,6 +407,41 @@ button img, button svg {
 .tradeModal button.tradeConfirm {
     background: green;
     width: 120px;
+}
+
+/* instructions modal */
+.instructionsModal {
+    overflow-y: scroll;
+    z-index: 99;
+}
+
+.instructionsModal .instructionsHeader {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    background: #ffffff;
+    box-shadow: 0 0 4 4 #ffffff;
+}
+
+.instructionsHeader .title {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.instructionsHeader .title h2 {
+    margin: 0;
+}
+
+.instructionsHeader .title div {
+    font-weight: bold;
+    font-size: 4vh;
+}
+
+.stepByStep, .FAQ {
+    padding: 2em;
+    margin: 18vh 0 0 0;
 }
 
 @media (min-width: 900px) {
