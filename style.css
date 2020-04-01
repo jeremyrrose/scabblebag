@@ -356,6 +356,10 @@ button img, button svg {
     display: flex;
 }
 
+.adjusterButtons button {
+    background-color: blue;
+}
+
 #adjustUndo.off, #showLatest.off {
     pointer-events: none;
     background-color: #cecece;
@@ -373,7 +377,7 @@ button img, button svg {
     margin-bottom: 3vh;
     border-radius: 1vh;
     border: 0px;
-    background: green;
+    background: blue;
     font-weight: bold;
     color: white;
     cursor: pointer;
@@ -395,6 +399,7 @@ button img, button svg {
     margin-top: 0;
     margin-left: 20px;
     font-size: 12vw;
+    background-color: green;
 }
 
 /* trade modal */
@@ -434,14 +439,14 @@ button img, button svg {
     margin: 0;
 }
 
-.instructionsHeader .title div {
-    font-weight: bold;
-    font-size: 4vh;
+.instructionsHeader .title div img {
+    cursor: pointer;
+    height: 6vh;
 }
 
 .stepByStep, .FAQ {
     padding: 2em;
-    margin: 18vh 0 0 0;
+    margin: 10vh 0 0 0;
 }
 
 @media (min-width: 900px) {

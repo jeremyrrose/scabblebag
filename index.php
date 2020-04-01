@@ -138,7 +138,7 @@
         <div class="instructionsHeader">
             <div class="title">
                 <h2>How to play</h2>
-                <div onclick="showInstructions()"> X </div>
+                <div onclick="showInstructions()"> <img src="exit.svg"> </div>
             </div>
             <!-- <div class="instructionsMenu">
                 <span>Step By Step</span> | <span>Frequently Asked Questions</span>
