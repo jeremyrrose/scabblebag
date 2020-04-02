@@ -267,6 +267,7 @@ button.trade {
 .buttons .drawButton {
     display: block;
     flex-grow: 10;
+    background-color: green;
 }
 
 .buttons .changeButton {
@@ -497,6 +498,26 @@ button img, button svg {
 
     .drawButton {
         margin-top: 14px;
+    }
+
+    .stepByStep, .FAQ {
+        max-width: 840px;
+        margin: 10vh auto;
+    }
+
+    .changeModal div, .tradeModal div, .drawModal>div {
+        max-width: 840px;
+        margin: 14% auto;
+    }
+
+    .welcomeModal div {
+        max-width: 840px;
+        margin: 0 auto;
+    }
+
+    .instructionsHeader .title {
+        max-width: 840px;
+        margin: 0 auto;
     }
 }
 

@@ -135,6 +135,10 @@ const uiDraw = async (e) => {
         e.target.innerHTML = '<img src="images/loading.svg" />';
         await drawTiles(gameId, num)
         .then(() => e.target.innerHTML = current);
+    } else {
+        // prevents showing last draw if draw is zero
+        draw = [];
+        drawDraw();
     }
     drawModalDiv.querySelector('div').querySelector('h2').innerHTML = `You drew ${num} tile${num > 1 || num == 0 ? 's' : ''}:${num == 0 ? '<br>Please click OK, then select a number between 1 and 7.' : ''}`;
     drawModal();
