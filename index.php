@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="style.css?d=04-02">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -48,7 +48,8 @@
                     <button type="button" onclick="showInstructions()">Game Instructions</button>
                 </div>
                 <div class="contact">
-                    SCRABBLEBAG by <a href="http://jeremy-rose.com" target="_blank">jeremy rose</a>
+                    SCRABBLEBAG by <a href="http://jeremy-rose.com" target="_blank">jeremy rose</a><br> <br>
+                    <a href="https://github.com/jeremyrrose/scrabblebag" target="_blank">View code on GitHub</a>
                 </div>
             </div>
         </div>
@@ -174,6 +175,6 @@
         <button type="button" onclick="messageModal()">Close</button>
     </div>
 </body>
-<script src="main.js"></script>
+<script src="main.js?d=04-02"></script>
 <script>initialize()</script>
 </html>
