@@ -83,7 +83,7 @@
         <div>
             <h3>Welcome to Scrabblebag!</h3>
             <p>Call a friend on the phone and play!</p>
-            <button type="button" class="drawButton" onclick="newGame()">Start a New Game!</button>
+            <button type="button" class="drawButton">Start a New Game!</button>
             <h4>How to play:</h4>
             <p>Get out your Scrabble board and arrange all the letters face up.</p>
             <p>Start a new game and text or email the URL in the address bar to your friend. Whenever it's time to draw, tell the bag how many letters you need and press "Draw." Find the tiles you see on the screen and place them on your rack.</p>
@@ -117,7 +117,7 @@
             </div>
 
             <h2>Leave this game:</h2>
-            <button type="button" onclick="newGame()">Start New Game</button>
+            <button type="button" class="settingsNewGame">Start New Game</button>
             <div>
                 <input id="gameId" />
                 <button type="button" onclick="goToGame(document.getElementById('gameId').value)">...or Enter a Game ID</button>

@@ -103,10 +103,12 @@ const tradeIn = async (letters) => {
     return game;
 }
 
-const newGame = async () => {
+const newGame = async (e) => {
+    let current = e.target.innerHTML;
+    e.target.innerHTML = '<img src="images/loading.svg" />';
     const game = await fetch(`${api}/new`)
     .then(resp => resp.json())
-    .then(resp => resp.game)
+    .then(resp => resp.game);
     gameId = game._id;
     bag = game.bag;
     draw = [];
@@ -251,6 +253,9 @@ adjustUndo.addEventListener('click', () => {
 })
 
 burger.addEventListener('click',showMenu);
+
+document.querySelector('.welcomeModal').querySelector('.drawButton').addEventListener('click', (e) => newGame(e));
+document.querySelector('.settingsNewGame').addEventListener('click', (e) => newGame(e));
 
 // muted/future scripts for game board
 // let main = document.querySelector('.board');
