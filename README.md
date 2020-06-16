@@ -18,3 +18,5 @@ For practical reasons, the layout is designed for portable devices first, though
 * HTML/CSS
 * A thin whisp of PHP
 * API - MongoDB via Express.js, [repository here](https://github.com/jeremyrrose/scrabblebag-api)
+
+Now the repo has a pull request template.
