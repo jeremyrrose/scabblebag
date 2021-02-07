@@ -127,11 +127,19 @@
         </div>
     </div>
     <div class="tradeModal">
-        <div>
+        <div class="submitTrade">
             <h3>Which letters would you like to trade in?</h3>
             <input id="tradeLetters" />
             <button type="button" class="tradeConfirm" onclick="uiTrade()">Trade</button>
             <button type="button" onclick="tradeModal()">Cancel</button>
+        </div>
+        <div class="confirm">
+            <h2>You entered:</h2>
+            <div class="draw"></div>
+            <div class="buttons">
+                <button type="button" class="tradeConfirm" onclick="uiTradeConfirm()">Trade</button>
+                <button type="button" onclick="tradeModal()">Cancel</button>
+            </div>
         </div>
     </div>
     <div class="instructionsModal">
