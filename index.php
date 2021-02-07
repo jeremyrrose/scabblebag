@@ -130,7 +130,6 @@
         <div>
             <h3>Which letters would you like to trade in?</h3>
             <input id="tradeLetters" />
-            <p>(Type letters separated by a comma. Example: A,Q,X,V)</p>
             <button type="button" class="tradeConfirm" onclick="uiTrade()">Trade</button>
             <button type="button" onclick="tradeModal()">Cancel</button>
         </div>
