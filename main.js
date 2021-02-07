@@ -27,8 +27,8 @@ let instructionsDiv = document.querySelector('.instructionsModal');
 
 // boot game or welcome
 const initialize = async () => {
-    if(gameId) {
-        getBag();
+    const wake = await fetch(api)
+    if(gameId && await getBag()) {
         drawId();
     } else {
         document.querySelector('.welcomeModal').classList.add('show');
@@ -37,13 +37,17 @@ const initialize = async () => {
 
 // fetch functions
 const getBag = async () => {
-    const res = await fetch(`${api}/bag/${gameId}`)
-    .then(resp => resp.json())
-    .then(resp => resp.bag)
-    bag = res;
-    drawBag();
-    drawRemain();
-    return res;
+    try {
+        const res = await fetch(`${api}/bag/${gameId}`)
+        .then(resp => resp.json())
+        .then(resp => resp.bag)
+        bag = res;
+        drawBag();
+        drawRemain();
+        return res;
+    } catch(error) {
+        return false
+    }
 }
 
 const drawTiles = async (gameId, num) => {
