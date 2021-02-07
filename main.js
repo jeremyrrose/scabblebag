@@ -1,34 +1,40 @@
 let bag; // holds part of API response
 let numTiles; // will hold input from keypad
 let draw; // holds part of API response
-let api = apiUrl ? `${apiUrl}/api` : ``; // apiUrl from index.php
+let trade; // holds tiles to trade before confirmation
+const api = apiUrl ? `${apiUrl}/api` : ``; // apiUrl from index.php
 
 // define shorthand DOM vars
 // burger menu
-let burger = document.querySelector('.burger').querySelector('svg');
-let gameIdSpan = document.querySelector('.gameId').querySelector('span');
-let gameIdTextarea = document.querySelector('.gameId').querySelector('textarea');
+const burger = document.querySelector('.burger').querySelector('svg');
+const gameIdSpan = document.querySelector('.gameId').querySelector('span');
+const gameIdTextarea = document.querySelector('.gameId').querySelector('textarea');
 // primary screen
-let remain = document.querySelector('.remain');
-let tileDiv = document.querySelector('.tiles');
-let keypad = document.querySelector('.keypad');
-let keys = keypad.querySelectorAll('button');
-let drawButton = document.getElementById('drawButton');
+const remain = document.querySelector('.remain');
+const tileDiv = document.querySelector('.tiles');
+const keypad = document.querySelector('.keypad');
+const keys = keypad.querySelectorAll('button');
+const drawButton = document.getElementById('drawButton');
 // draw modal
-let drawModalDiv = document.querySelector('.drawModal');
-let drawDiv = document.querySelector('.draw');
+const drawModalDiv = document.querySelector('.drawModal');
+const drawDiv = document.querySelector('.draw');
+// trade modal
+const tradeModalDiv = document.querySelector('.tradeModal');
+const tradeInput = document.querySelector('#tradeLetters')
+const tradeConfirmDiv = document.querySelector('.tradeModal .confirm')
+const lettersToTrade = tradeConfirmDiv.querySelector('.draw')
 // settings modal
-let adjusters = document.querySelector('.adjusters');
-let showLastDrawButton = document.getElementById('showLatest');
-let showLastDraw = document.querySelector('.showLastDraw');
-let adjustUndo = document.getElementById('adjustUndo');  
+const adjusters = document.querySelector('.adjusters');
+const showLastDrawButton = document.getElementById('showLatest');
+const showLastDraw = document.querySelector('.showLastDraw');
+const adjustUndo = document.getElementById('adjustUndo');  
 // instructions modal
-let instructionsDiv = document.querySelector('.instructionsModal');
+const instructionsDiv = document.querySelector('.instructionsModal');
 
 // boot game or welcome
 const initialize = async () => {
-    if(gameId) {
-        getBag();
+    const wake = await fetch(api)
+    if(gameId && await getBag()) {
         drawId();
     } else {
         document.querySelector('.welcomeModal').classList.add('show');
@@ -37,13 +43,17 @@ const initialize = async () => {
 
 // fetch functions
 const getBag = async () => {
-    const res = await fetch(`${api}/bag/${gameId}`)
-    .then(resp => resp.json())
-    .then(resp => resp.bag)
-    bag = res;
-    drawBag();
-    drawRemain();
-    return res;
+    try {
+        const res = await fetch(`${api}/bag/${gameId}`)
+        .then(resp => resp.json())
+        .then(resp => resp.bag)
+        bag = res;
+        drawBag();
+        drawRemain();
+        return res;
+    } catch(error) {
+        return false
+    }
 }
 
 const drawTiles = async (gameId, num) => {
@@ -81,9 +91,8 @@ const goToGame = (gameId) => {
     window.location.replace(`${webRoot}?game=${gameId}`)
 }
 
-const tradeIn = async (letters) => {
-    let trade = letters.map(letter => letterTemplates.filter(template => Object.keys(template)[0] == letter.toUpperCase())[0])
-    console.log(JSON.stringify(trade));
+const tradeIn = async (trade) => {
+    console.log('tradeIn running', JSON.stringify(trade));
     const game = await fetch(`${api}/trade/${gameId}`, {
         method: 'PUT',
         headers: {
@@ -147,8 +156,21 @@ const uiDraw = async (e) => {
 }
 
 const uiTrade = () => {
-    let letters = document.getElementById('tradeLetters').value.split(',');
-    tradeIn(letters);
+    trade = tradeInput.value.match(/[a-zA-Z]/g)
+        .map(letter => letterTemplates.filter(template => Object.keys(template)[0] == letter.toUpperCase())[0])
+    trade.forEach((letterVal) => {
+        let letter = Object.keys(letterVal)[0];
+        let tile = document.createElement('div');
+        tile.dataset.value = letterVal[letter];
+        tile.innerHTML = letter;
+        lettersToTrade.appendChild(tile);
+    });
+    tradeModalDiv.querySelectorAll('.submitTrade button').forEach(button => button.classList.add('off'))
+    tradeConfirmDiv.classList.add('show')
+}
+
+const uiTradeConfirm = async () => {
+    await tradeIn(trade);
     tradeModal();
 }
 
@@ -189,7 +211,14 @@ const changeModal = async () => {
 }
 
 const tradeModal = () => {
-    document.querySelector('.tradeModal').classList.toggle('show');
+    tradeModalDiv.classList.toggle('show');
+    tradeInput.value = ""
+    while (lettersToTrade.firstChild) {
+        lettersToTrade.removeChild(lettersToTrade.firstChild);
+    }
+    tradeConfirmDiv.classList.remove('show')
+    tradeModalDiv.querySelectorAll('.submitTrade button').forEach(button => button.classList.remove('off'))
+    trade = null
 }
 
 const messageModal = () => {

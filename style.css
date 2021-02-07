@@ -307,7 +307,7 @@ button img, button svg {
     background-color: rgba(256,256,256,.95);
 }
 
-.changeModal div, .tradeModal div, .drawModal>div {
+.changeModal div, .tradeModal>div, .drawModal>div {
     margin: 16% 12%;
 }
 
@@ -361,7 +361,7 @@ button img, button svg {
     background-color: blue;
 }
 
-#adjustUndo.off, #showLatest.off {
+.off, #adjustUndo.off, #showLatest.off, .submitTrade > .off, .submitTrade > .tradeConfirm.off {
     pointer-events: none;
     background-color: #cecece;
 }
@@ -413,6 +413,19 @@ button img, button svg {
 .tradeModal button.tradeConfirm {
     background: green;
     width: 120px;
+}
+
+.tradeModal .confirm {
+    display: none;
+}
+
+.tradeModal .confirm.show {
+    display: block;
+}
+
+.tradeModal .confirm .buttons {
+    display: block;
+    margin: 20px 0;
 }
 
 /* instructions modal */
@@ -505,14 +518,14 @@ button img, button svg {
         margin: 10vh auto;
     }
 
-    .changeModal div, .tradeModal div, .drawModal>div {
+    .changeModal div, .drawModal>div {
         max-width: 840px;
         margin: 14% auto;
     }
 
-    .welcomeModal div {
+    .welcomeModal div, .tradeModal>div {
         max-width: 840px;
-        margin: 0 auto;
+        margin: 4% auto;
     }
 
     .instructionsHeader .title {
