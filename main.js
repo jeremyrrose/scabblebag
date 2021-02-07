@@ -151,7 +151,7 @@ const uiDraw = async (e) => {
 }
 
 const uiTrade = () => {
-    let letters = document.getElementById('tradeLetters').value.split(',');
+    let letters = document.getElementById('tradeLetters').value.match(/[a-zA-Z]/g)
     tradeIn(letters);
     tradeModal();
 }
