@@ -22,7 +22,7 @@
                 $game_id = $_GET['game'];
                 echo "let gameId = '$game_id';";
             } else {
-                echo "let gameId;";
+                echo "let gameId = null";
             }
             ?>
         </script>

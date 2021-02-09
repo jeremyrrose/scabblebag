@@ -33,12 +33,12 @@ const instructionsDiv = document.querySelector('.instructionsModal');
 
 // boot game or welcome
 const initialize = async () => {
+    document.querySelector('.welcomeModal').classList.add('show');
     const wake = await fetch(api)
     if(gameId && await getBag()) {
         drawId();
-    } else {
-        document.querySelector('.welcomeModal').classList.add('show');
-    }
+        document.querySelector('.welcomeModal').classList.remove('show');
+    } 
 }
 
 // fetch functions
