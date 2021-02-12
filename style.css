@@ -305,6 +305,7 @@ button img, button svg {
 .changeModal.show, .tradeModal.show, .drawModal.show, .welcomeModal.show, .messageModal.show, .instructionsModal.show {
     display: block;
     background-color: rgba(256,256,256,.95);
+    overflow-y: scroll;
 }
 
 .changeModal div, .tradeModal>div, .drawModal>div {
